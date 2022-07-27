@@ -10,7 +10,7 @@
 <h1>Все новости:</h1>
 
 {% for post in news %}
-<p>{{ post.name | stop_words }}<br>{{ post.date }}</p>
+<p>{{ post.name | censor }}<br>{{ post.date }}</p>
 {% endfor %}
 
 {% endblock content %}
