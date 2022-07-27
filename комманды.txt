@@ -1,0 +1,31 @@
+Vadim = User.objects.create_user('Vadim')   
+us_v = Author.objects.create(author = Vadim) 
+Moorad = User.objects.create_user('Moorad')   
+us_m = Author.objects.create(author = Moorad)   
+
+cat1 = Category.objects.create(name = "Хлам")                    
+cat2 = Category.objects.create(name = "Мусор") 
+cat3 = Category.objects.create(name = "Интересное") 
+>>> cat4 = Category.objects.create(name = "Игры")  
+
+art1 = Post.objects.create(name="Пост", text = "В христианстве пост — добрвольное самоограничение в пище, развлечениях, общении с людьми, форма религиозного аскетизма, упражнение духа", choice = Post.article, author = us_v)
+art2 = Post.objects.create(name="Пост про курсор", text = "Текстовый курсор (а также по аналогии с печатной машинкой — каретка, англ. caret) в общем случае обозначает место, куда будет вставлен введённый с клавиатуры текст. Курсор обычно мигает для того, чтобы его можно было быстро найти в тексте — неподвижный курсор может оказаться сложноразличимым в большом тексте. Наиболее распространённая форма курсора в современных интерфейсах пользователя — вертикальная черта, по высоте соответствующая высоте строки текста и располагающаяся в начале знакоместа вводимого символа. В некоторых случаях используются другие виды курсора: прямоугольник шириной в знакоместо, охватывающий следующий знак, символ подчёркивания или другой символ. К примеру, в компьютерах ZX-Spectrum в качестве курсора использовалась заглавная латинская буква в знакоместе.", choice = Post.article, author = us_v)
+news1 = Post.objects.create(name="Новый глава Роскосмоса заявил о выходе из проекта МКС", text = "Россия приняла решение о выходе из проекта Международной космической станции (МКС) после 2024, но, несмотря на это, «Роскосмос» выполнит все свои обязательства перед партнерами. Об этом заявил глава корпорации Юрий Борисов. Вы знаете, что мы ведем работу в рамках международного сотрудничества на Международной космической станции. Безусловно, все свои обязательства мы выполним перед нашими партнерами, но решение и уход с этой станции после 2024 года приняты, — сказал Борисов на встрече с президентом РФ Владимиром Путиным, которая транслировалась на телеканале Россия 24. По его словам, к моменту выхода из проекта Россия начнет формировать собственную орбитальную станцию.", choice = Post.news, author = us_v)
+
+
+PostCategory.objects.create(category_id = 1, post_id = 1)
+PostCategory.objects.create(category_id = 2, post_id = 1)
+PostCategory.objects.create(category_id = 1, post_id = 2)
+PostCategory.objects.create(category_id = 2, post_id = 3)
+
+comment1 = Comment.objects.create(text = "Кул", post = art1, user=Vadim) 
+comment2 = Comment.objects.create(text = "Кул2", post = art2, user=Moorad) 
+comment3 = Comment.objects.create(text = "Кул3", post = news1, user=Moorad)  
+comment4 = Comment.objects.create(text = "Super!", post = news1, user=Moorad) 
+
+comment1.like()
+
+art1.like()
+
+
+
