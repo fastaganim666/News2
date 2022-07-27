@@ -1,0 +1,12 @@
+{% extends 'flatpages/default.html' %}
+
+{% load custom_filters %}
+{% block title %}
+Пост
+{% endblock title %}
+
+{% block content %}
+<h1>{{ post.name | stop_words }}</h1>
+<p>{{ post.text | stop_words }}</p>
+<p>{{ post.date }}</p>
+{% endblock content %}
