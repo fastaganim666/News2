@@ -6,7 +6,7 @@
 {% endblock title %}
 
 {% block content %}
-<h1>{{ post.name | stop_words }}</h1>
-<p>{{ post.text | stop_words }}</p>
+<h1>{{ post.name | censor }}</h1>
+<p>{{ post.text | censor }}</p>
 <p>{{ post.date }}</p>
 {% endblock content %}
