@@ -3,7 +3,7 @@ from django import template
 
 register = template.Library()
 
-STOP_WORDS = ("Новый", "новый")
+STOP_WORDS = ("Новый", "новый", 'Пост', 'пост')
 
 @register.filter()
 def censor(text):
